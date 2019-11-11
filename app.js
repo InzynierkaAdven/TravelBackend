@@ -16,12 +16,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/users', userRoute);
-
-//TODO
 app.use('/cities', citiesRoute);
 
 app.get('/', (req, res) => {
-    res.send('My travel app backend v1.0')
+    res.send('My travel app backend v1.01')
 })
 
 mongoose.connect(url, {
