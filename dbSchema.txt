@@ -1,0 +1,77 @@
+db.cities.insert({
+    
+    basic_info:{
+        country: 'Poland',
+        city: 'Łódź', 
+        location: {
+            latitude:51.7732033,
+            longtitude: 19.4105532
+        }
+    }],
+    
+    hotels:[{
+        name: 'DoubleTree by Hilton', 
+        num_of_stars: 4, 
+        avg_price: {amount: 350, currency: 'PLN'},
+        location: {
+            latitude:51.7732033,
+            longtitude: 19.4105532
+        },
+        address: {
+            street: 'Mickiewicza',
+            number: 8
+        },
+        comments: [{author: 'Adven97', content :'Good hotel'}], 
+        grades: [{author: 'Adven97', rate: 4}]
+    }],
+    
+    foods:[{
+        name: 'Ato Ramen',
+        type : 'Ramen bar', 
+        location: {
+            latitude:51.7609318,
+            longtitude: 19.4562637
+        },
+        address: {
+            street: 'Piotrkowska',
+            number: 140
+        },
+        grades: [{author: 'Adven97', rate: 5}], 
+        comments: [{author: 'Adven97', content :'Fantastic Ramen, best in the city!'}], 
+    }],
+    
+    events:[{
+        name: 'Wixapol',
+        address: {
+            street: 'Piotrkowska',
+            number: 138
+        },
+        location: {
+            latitude: 51.7612665,
+            longtitude: 19.459608
+        },
+        duration:{
+            beggining: new Date("2019-10-18T22:00:00Z"),
+            end: new Date("2019-10-19T5:00:00Z")
+        },
+        price: {amount: 20, currency: 'PLN'}
+ 
+    }],
+    
+    atractions:[{
+        name: 'Manufaktura',
+        address: {
+            street: 'Drewnowska',
+            number: 58
+        },
+        location: {
+            latitude: 51.7813524,
+            longtitude: 19.4421527
+        },
+        comments: [{author: 'Adven97', content :'good place for hanging out'}], 
+    }],
+    price: {amount: 20, currency: 'PLN'},
+    grades: [{author: 'Adven97', rate: 5}], 
+    comments: [{author: 'Adven97', content :'JebaĆ ŁKS I ŁKA'}]
+    
+})
