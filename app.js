@@ -19,7 +19,7 @@ app.use('/users', userRoute);
 app.use('/cities', citiesRoute);
 
 app.get('/', (req, res) => {
-    res.send('My travel app backend v1.01')
+    res.send('My travel app backend v1.1')
 })
 
 mongoose.connect(url, {
