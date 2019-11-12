@@ -1,6 +1,6 @@
 {
   "name": "travell_app_backend",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "backend for my travell app",
   "main": "index.js",
   "scripts": {
