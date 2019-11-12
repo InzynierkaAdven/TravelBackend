@@ -75,3 +75,21 @@ db.cities.insert({
     comments: [{author: 'Adven97', content :'JebaĆ ŁKS I ŁKA'}]
     
 })
+
+///////// hotels
+
+{
+	"hotels":{
+        "name": "Grant Hotel", 
+        "location": {
+            "latitude":51.7732545,
+            "longtitude": 19.405732
+        },
+        "address": {
+            "street": "Piotrkowska",
+            "number": 66
+        },
+        "comments": [], 
+        "grades": []
+    }
+}

@@ -154,6 +154,22 @@ const AttractionSchema = mongoose.Schema({
     grades: [GradeSchema]
 });
 
+const AdditionalInfoSchema = mongoose.Schema({
+    _id: false,
+    author: {
+        type: String,
+        required: true
+    },
+    title: {
+        type: String,
+        required: true
+    },
+    content: {
+        type: String,
+        required: true
+    },
+});
+
 const CitySchema = mongoose.Schema({
     basic_info: {
         type: BasicInfoSchema,
@@ -164,7 +180,8 @@ const CitySchema = mongoose.Schema({
     events: [EventSchema],
     atractions: [AttractionSchema],
     comments: [CommentSchema],
-    grades: [GradeSchema]
+    grades: [GradeSchema],
+    additional_info: [AdditionalInfoSchema]
 
 });
 

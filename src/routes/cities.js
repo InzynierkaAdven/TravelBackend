@@ -2,6 +2,10 @@ const express = require('express');
 const router = express.Router();
 const City = require('../models/City');
 
+const hotelInfo = require('./city-info/hotels');
+
+router.use('/hotels', hotelInfo);
+
 router.get('/', async (req, res) => {
     try {
         const cities = await City.find();
@@ -21,7 +25,8 @@ router.post('/', async (req, res) => {
         events: req.body.events,
         atractions: req.body.atractions,
         comments: req.body.comments,
-        grades: req.body.grades
+        grades: req.body.grades,
+        additional_info: req.body.additional_info
     });
 
     try {
