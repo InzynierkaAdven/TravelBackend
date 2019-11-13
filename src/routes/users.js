@@ -93,4 +93,21 @@ router.delete('/:userId', async (req, res) => {
 
 });
 
+router.patch('/city/nick/:nick', async (req, res) => {
+    try {
+        const newCity = await User.updateOne({
+            "nick": req.params.nick
+        }, {
+            $push: {
+                cities: req.body.city
+            }
+        });
+        res.json(newCity)
+    } catch (err) {
+        res.json({
+            message: err
+        })
+    }
+})
+
 module.exports = router;

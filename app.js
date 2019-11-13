@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const slug = require('slugify')
 require('dotenv/config');
 
 const userRoute = require('./src/routes/users');
@@ -19,12 +20,12 @@ app.use('/users', userRoute);
 app.use('/cities', citiesRoute);
 
 app.get('/', (req, res) => {
-    res.send('My travel app backend v1.1')
+    res.send('My travel app backend v1.5')
 })
 
 mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-}, () => console.log('connected to Database'));
+}, () => console.log('connected to Database '));
 
 app.listen(port);

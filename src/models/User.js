@@ -28,7 +28,10 @@ const UsersSchema = mongoose.Schema({
     },
     salt: {
         type: String
-    }
+    },
+    cities: [{
+        type: String
+    }]
 });
 
 UsersSchema.methods.setPassword = function (password) {
