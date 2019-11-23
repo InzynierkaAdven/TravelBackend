@@ -44,17 +44,6 @@ router.get('/:city', async (req, res) => {
     }
 })
 
-router.get('/basic', async (req, res) => {
-    try {
-        const cities = await BasicCity.find();
-        res.json(cities)
-    } catch (err) {
-        res.json({
-            message: err
-        })
-    }
-})
-
 router.post('/basic', async (req, res) => {
     const city = new BasicCity({
         country: req.body.country,
