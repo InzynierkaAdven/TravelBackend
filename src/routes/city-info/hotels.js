@@ -40,7 +40,7 @@ router.patch('/com/:cityId', async (req, res) => {
     }
 })
 
-router.patch('/grades/:cityId', async (req, res) => {
+router.patch('/addGrades/:cityId', async (req, res) => {
     try {
         const comment = await City.updateOne({
             "_id": req.params.cityId,
@@ -54,6 +54,44 @@ router.patch('/grades/:cityId', async (req, res) => {
             }
         });
         res.json(comment)
+    } catch (err) {
+        res.json({
+            message: err
+        })
+    }
+})
+
+router.patch('/setGrades/:cityId', async (req, res) => {
+    try {
+        const grade = await City.updateOne({
+            "_id": req.params.cityId,
+            "hotels.name": req.body.name
+        }, {
+            $set: {
+                "hotels.$.grades": {
+                    author: req.body.author,
+                    rate: req.body.rate
+                }
+            }
+        });
+        res.json(grade)
+    } catch (err) {
+        res.json({
+            message: err
+        })
+    }
+})
+
+router.get('/checkGrades/:cityId', async (req, res) => {
+    try {
+        const grade = await City.find({
+            "_id": req.params.cityId,
+            "hotels.name": req.body.name,
+            "hotels.grades.author": req.body.author
+        }, {
+            "hotels": 1
+        });
+        res.json(grade)
     } catch (err) {
         res.json({
             message: err

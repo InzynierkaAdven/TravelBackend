@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const URLSlugs = require('mongoose-url-slugs')
 
 const LocationSchema = mongoose.Schema({
     latitude: {
@@ -22,7 +21,6 @@ const AddressSchema = mongoose.Schema({
         type: Number,
         required: true
     }
-
 })
 
 const PriceSchema = mongoose.Schema({
@@ -45,7 +43,7 @@ const CommentSchema = mongoose.Schema({
     content: {
         type: String,
         required: true
-    },
+    }
 });
 
 const GradeSchema = mongoose.Schema({
@@ -62,18 +60,7 @@ const GradeSchema = mongoose.Schema({
     },
 });
 
-const BasicInfoSchema = mongoose.Schema({
-    _id: false,
-    country: {
-        type: String,
-        required: true
-    },
-    city: {
-        type: String,
-        required: true
-    },
-    location: LocationSchema
-});
+
 
 
 
@@ -159,7 +146,7 @@ const EventSchema = mongoose.Schema({
     comments: [CommentSchema]
 });
 
-const AttractionSchema = mongoose.Schema({
+const AtractionSchema = mongoose.Schema({
     _id: false,
     name: {
         type: String,
@@ -199,23 +186,18 @@ const AdditionalInfoSchema = mongoose.Schema({
 });
 
 const CitySchema = mongoose.Schema({
-    basic_info: {
-        type: BasicInfoSchema,
+    slug: {
+        type: String,
         required: true
     },
     hotels: [HotelSchema],
     foods: [FoodSchema],
     events: [EventSchema],
-    atractions: [AttractionSchema],
+    atractions: [AtractionSchema],
     comments: [CommentSchema],
     grades: [GradeSchema],
     additional_info: [AdditionalInfoSchema]
 
 });
-
-CitySchema.plugin(URLSlugs('basic_info', {
-    field: 'slug',
-    update: true
-}))
 
 module.exports = mongoose.model('City', CitySchema);
