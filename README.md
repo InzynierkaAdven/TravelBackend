@@ -96,3 +96,24 @@ Base link: https://travelandchill.herokuapp.com/
     "password": "shrek"
 }
 ```
+
+
+### Comment example
+
+```
+{
+ 	"name": "Manufaktura",
+        "author": "Adven97", 
+        "content" :"chujnia xd"
+}
+````
+
+### Rate example
+
+```
+{
+ 	"name": "Manufaktura",
+        "author": "Adven97", 
+        "rate": 3
+}
+````
