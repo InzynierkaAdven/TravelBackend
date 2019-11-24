@@ -60,7 +60,7 @@ router.get('country/:country/:city', async (req, res) => {
     }
 })
 
-router.get('/city/cityId', async (req, res) => {
+router.get('/city/:cityId', async (req, res) => {
     try {
         const cities = await BasicCity.findOne({
             "_id": req.params.cityId

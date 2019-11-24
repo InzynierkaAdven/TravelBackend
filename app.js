@@ -22,7 +22,7 @@ app.use('/cities', citiesRoute);
 app.use('/basic', basicRoute);
 
 app.get('/', (req, res) => {
-    res.send('My travel app backend v 2.2')
+    res.send('My travel app backend v 2.3')
 })
 
 mongoose.connect(url, {
