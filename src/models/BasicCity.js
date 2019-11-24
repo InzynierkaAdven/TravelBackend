@@ -19,4 +19,8 @@ const BasicInfoSchema = mongoose.Schema({
     }
 });
 
+// BasicInfoSchema.plugin(URLSlugs('name', {
+//     field: 'slug'
+// }))
+
 module.exports = mongoose.model('BasicCity', BasicInfoSchema);

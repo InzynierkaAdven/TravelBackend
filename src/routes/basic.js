@@ -15,6 +15,23 @@ router.get('/', async (req, res) => {
         })
     }
 })
+router.post('/', async (req, res) => {
+    const city = new BasicCity({
+        name: req.body.name,
+        country: req.body.country,
+        lat: req.body.lat,
+        lng: req.body.lng
+    });
+
+    try {
+        const savedCity = await city.save();
+        res.json(savedCity)
+    } catch (err) {
+        res.json({
+            message: err
+        })
+    }
+})
 
 router.get('/country/:country', async (req, res) => {
     try {
@@ -43,10 +60,10 @@ router.get('country/:country/:city', async (req, res) => {
     }
 })
 
-router.get('/city', async (req, res) => {
+router.get('/city/cityId', async (req, res) => {
     try {
         const cities = await BasicCity.findOne({
-            "name": req.body.city
+            "_id": req.params.cityId
         });
         res.json(cities)
     } catch (err) {

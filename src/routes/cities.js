@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const City = require('../models/City');
+const CityDB = require('../models/CityDB');
 const BasicCity = require('../models/BasicCity');
 
 const hotelInfo = require('./city-info/hotels');
@@ -59,6 +60,30 @@ router.post('/', async (req, res) => {
     try {
         const savedCity = await city.save();
         res.json(savedCity)
+    } catch (err) {
+        res.json({
+            message: err
+        })
+    }
+
+});
+
+router.patch('/', async (req, res) => {
+    try {
+        const city = await CityDB.updateOne({
+            "_id": "5ddaee7629e6e581705b5198"
+        }, {
+            $push: {
+                hotels: req.body.hotels,
+                foods: req.body.foods,
+                events: req.body.events,
+                atractions: req.body.atractions,
+                comments: req.body.comments,
+                grades: req.body.grades,
+                additional_info: req.body.additional_info
+            }
+        });
+        res.json(city)
     } catch (err) {
         res.json({
             message: err
