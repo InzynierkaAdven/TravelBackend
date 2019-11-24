@@ -187,8 +187,20 @@ const AdditionalInfoSchema = mongoose.Schema({
     },
 });
 
-const CitySchema = mongoose.Schema({
-    city: {
+const CityDBSchema = mongoose.Schema({
+    country: {
+        type: String,
+        required: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    lat: {
+        type: String,
+        required: true
+    },
+    lng: {
         type: String,
         required: true
     },
@@ -202,4 +214,4 @@ const CitySchema = mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('City', CitySchema);
+module.exports = mongoose.model('CityDB', CityDBSchema);

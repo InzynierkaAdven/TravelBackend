@@ -22,14 +22,13 @@ app.use('/cities', citiesRoute);
 app.use('/basic', basicRoute);
 
 app.get('/', (req, res) => {
-    res.send('My travel app backend v 2.1')
+    res.send('My travel app backend v 2.2')
 })
-
-
 
 mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, () => console.log('connected to Database '));
+
 
 app.listen(port);

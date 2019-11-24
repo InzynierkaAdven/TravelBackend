@@ -34,7 +34,7 @@ router.get('/', async (req, res) => {
 router.get('/:city', async (req, res) => {
     try {
         const cities = await City.findOne({
-            "basic_info.city": req.body.city
+            "_id": req.params.city
         });
         res.json(cities)
     } catch (err) {
@@ -44,27 +44,9 @@ router.get('/:city', async (req, res) => {
     }
 })
 
-router.post('/basic', async (req, res) => {
-    const city = new BasicCity({
-        country: req.body.country,
-        name: req.body.name,
-        lat: req.body.lat,
-        lng: req.body.lng
-    });
-    try {
-        const savedCity = await city.save();
-        res.json(savedCity)
-    } catch (err) {
-        res.json({
-            message: err
-        })
-    }
-
-});
-
 router.post('/', async (req, res) => {
     const city = new City({
-        slug: req.body.slug,
+        city: req.body.city,
         hotels: req.body.hotels,
         foods: req.body.foods,
         events: req.body.events,
